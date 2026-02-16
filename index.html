@@ -1,125 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gran Rifa Prueba Tu Suerte</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;background:#f2f2f2;margin:0;padding:16px}
-.card{background:linear-gradient(135deg,#35c6c1,#7de3e0);color:#fff;border-radius:18px;padding:24px 16px;text-align:center;margin-bottom:20px}
-.card h1{margin:0;font-size:28px}
-.card h2{margin:6px 0;font-size:20px;font-weight:normal}
-.card p{margin:6px 0;font-size:15px}
-.money{margin:14px auto;width:100%;max-width:360px}
-.section{background:#fff;border-radius:14px;padding:18px 14px;margin-bottom:18px}
-.numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.num{border:2px solid #35c6c1;border-radius:10px;padding:12px 0;text-align:center;font-weight:bold;cursor:pointer}
-.num.active{background:#35c6c1;color:#fff}
-.num.sold{background:#ccc;border-color:#999;color:#666;cursor:not-allowed}
-.note{font-size:14px;color:#555;text-align:center;margin-top:10px}
-button.pay{width:100%;background:#00c2a8;color:#fff;border:none;padding:16px;font-size:18px;border-radius:10px;cursor:pointer}
-.sold-list{margin-top:14px;text-align:center;font-size:15px}
-.sold-list strong{display:block;margin-bottom:6px}
-</style>
+  <meta charset="UTF-8">
+  <title>Rifa $2.000.000</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif}
+    body{margin:0;background:#f8fafc;display:flex;justify-content:center;align-items:center;min-height:100vh}
+    .card{background:#fff;width:100%;max-width:420px;padding:28px;border-radius:18px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);text-align:center}
+    h1{margin:0 0 10px;color:#0f172a}
+    .price{font-size:22px;margin:10px 0}
+    .price span{color:#16a34a;font-weight:700}
+    .note{font-size:13px;color:#475569;margin-bottom:16px}
+    .progress-bar{width:100%;height:20px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:16px 0 6px}
+    .progress-fill{height:100%;width:72%;background:linear-gradient(90deg,#16a34a,#22c55e)}
+    .progress-text{font-size:13px;color:#475569;margin-bottom:18px}
+    .cta{width:100%;padding:16px;background:#16a34a;color:#fff;border:none;border-radius:14px;
+      font-size:16px;font-weight:600;cursor:pointer}
+    .cta:hover{background:#15803d}
+    .section{display:none}
+    .section.active{display:block}
+    input{width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #cbd5f5;font-size:15px}
+    .summary{background:#f1f5f9;padding:12px;border-radius:10px;margin:12px 0;text-align:left;font-size:14px}
+    .file-box{border:2px dashed #16a34a;padding:14px;border-radius:12px;background:#f0fdf4;
+      cursor:pointer;margin:14px 0;font-size:14px}
+    .success{color:#16a34a;font-weight:600;margin-top:12px}
+  </style>
 </head>
 <body>
 
 <div class="card">
-  <h1>Gran Rifa Prueba Tu Suerte</h1>
-  <h2>Premio: $500.000 COP</h2>
-  <p><strong>Valor por número:</strong> $10.000 COP</p>
 
-  <div class="money">
-    <svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#2fd1c3"/>
-          <stop offset="100%" stop-color="#6ee7d8"/>
-        </linearGradient>
-      </defs>
-      <rect x="0" y="20" rx="16" ry="16" width="220" height="100" fill="url(#g)" opacity="0.9"/>
-      <rect x="120" y="0" rx="16" ry="16" width="220" height="100" fill="url(#g)" opacity="0.75"/>
-      <rect x="60" y="40" rx="16" ry="16" width="220" height="100" fill="url(#g)" opacity="0.6"/>
-    </svg>
+  <div class="section active" id="home">
+    <h1>🎉 Gana $2.000.000 COP</h1>
+    <div class="price"><span>$3.000</span> COP por sticker</div>
+    <p class="note">
+      Compra mínima de <strong>5 stickers</strong><br>
+      Los números se asignan automáticamente y se envían a tu correo.
+    </p>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="progress-text">720 de 1000 stickers vendidos — <strong>72%</strong></div>
+    <button class="cta" onclick="goTo('quantity')">Seleccionar cantidad</button>
   </div>
 
-  <p><strong>Información importante:</strong><br>
-  El ganador se escogerá cuando se vendan la totalidad de las boletas,
-  por las <strong>dos últimas cifras de la Lotería de Medellín</strong>,
-  con todas las pruebas pertinentes.</p>
-</div>
-
-<div class="section">
-  <h3>Selecciona tus números</h3>
-  <div class="numbers" id="numbers"></div>
-</div>
-
-<div class="section">
-  <button class="pay" id="payBtn">Selecciona números para pagar</button>
-  <div class="note">
-    Recuerda hacer el pago correcto con el total para validar tus números seleccionados
+  <div class="section" id="quantity">
+    <h1>Selecciona la cantidad</h1>
+    <p class="note">Compra mínima: <strong>5 stickers</strong></p>
+    <input type="number" min="5" value="5" id="qty" oninput="updateTotal()">
+    <div class="summary">Total a pagar: <strong id="total">$15.000 COP</strong></div>
+    <button class="cta" onclick="goTo('checkout')">Continuar</button>
   </div>
 
-  <div class="sold-list" id="soldList">
-    <strong>NÚMEROS VENDIDOS</strong>
-    16 - 22 - 88 - 92
+  <div class="section" id="checkout">
+    <h1>Finaliza tu participación</h1>
+    <input placeholder="Nombre completo">
+    <input placeholder="Celular">
+    <input placeholder="Correo electrónico">
+    <div class="summary">
+      Stickers: <span id="sumQty">5</span><br>
+      Total: <strong id="sumTotal">$15.000 COP</strong>
+    </div>
+    <p class="note">Una vez confirmado el pago, recibirás tus números por correo.</p>
+    <button class="cta" onclick="goTo('payment')">Realizar pedido</button>
   </div>
+
+  <div class="section" id="payment">
+    <h1>Realiza tu pago</h1>
+    <div class="summary">
+      <strong>Total a pagar:</strong> <span id="payTotal">$15.000 COP</span><br><br>
+      <strong>Nequi:</strong> 300 123 4567<br>
+      <strong>Bancolombia:</strong> 02365222510
+    </div>
+    <p class="note">
+      Puedes salir un momento, realizar la transferencia y luego regresar
+      para adjuntar la captura del comprobante.
+    </p>
+    <label class="file-box">
+      📎 Adjuntar comprobante
+      <input type="file" hidden>
+    </label>
+    <button class="cta" onclick="showSuccess()">He realizado el pago</button>
+    <div class="success" id="successMsg" style="display:none;">
+      ✅ Comprobante enviado. Te enviaremos tus números por correo.
+    </div>
+  </div>
+
 </div>
 
 <script>
-const numbersDiv = document.getElementById("numbers");
-const payBtn = document.getElementById("payBtn");
-const soldText = document.getElementById("soldList").innerText;
-const vendidos = soldText.replace(/[^0-9]/g," ").trim().split(/\s+/);
-
-let seleccionados = [];
-
-function render(){
-  numbersDiv.innerHTML="";
-  seleccionados=[];
-  for(let i=0;i<100;i++){
-    const n=i.toString().padStart(2,"0");
-    const d=document.createElement("div");
-    d.className="num";
-    d.textContent=n;
-
-    if(vendidos.includes(n)){
-      d.classList.add("sold");
-    }else{
-      d.onclick=()=>{
-        if(seleccionados.includes(n)){
-          seleccionados.splice(seleccionados.indexOf(n),1);
-          d.classList.remove("active");
-        }else{
-          seleccionados.push(n);
-          d.classList.add("active");
-        }
-        actualizarBoton();
-      };
-    }
-    numbersDiv.appendChild(d);
+  function goTo(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    updateTotal();
   }
-  actualizarBoton();
-}
-
-function actualizarBoton(){
-  if(seleccionados.length===0){
-    payBtn.textContent="Selecciona números para pagar";
-  }else{
-    payBtn.textContent="Pagar "+(seleccionados.length*10000).toLocaleString("es-CO");
+  function updateTotal(){
+    const q=Math.max(5,Number(document.getElementById('qty').value||5));
+    const total=q*3000;
+    document.getElementById('total').innerText=total.toLocaleString('es-CO',{style:'currency',currency:'COP'});
+    document.getElementById('sumQty').innerText=q;
+    document.getElementById('sumTotal').innerText=total.toLocaleString('es-CO',{style:'currency',currency:'COP'});
+    document.getElementById('payTotal').innerText=total.toLocaleString('es-CO',{style:'currency',currency:'COP'});
   }
-}
-
-payBtn.onclick=()=>{
-  if(seleccionados.length===0){
-    alert("Selecciona al menos un número");
-    return;
+  function showSuccess(){
+    document.getElementById('successMsg').style.display='block';
   }
-  const total=seleccionados.length*10000;
-  window.location.href=`https://checkout.wompi.co/l/JIwwwN?amount=${total}`;
-};
-
-render();
 </script>
 
 </body>
