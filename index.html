@@ -3,85 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rifa – Frees Gou</title>
+<title>Evento – Frees Gou</title>
 
 <style>
-*{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont;}
+*{
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI;
+}
 body{
   margin:0;
-  background:#e9f3f3;
+  background:#e8f2f2;
   display:flex;
   justify-content:center;
 }
 .app{
   width:100%;
-  max-width:420px;
-  background:#fff;
+  max-width:430px;
+  background:#ffffff;
   min-height:100vh;
 }
-.top-black{
+
+/* BARRA SUPERIOR */
+.top-bar{
   background:#000;
   color:#fff;
+  text-align:center;
   padding:12px;
-  text-align:center;
-  font-weight:700;
-}
-.banner{
-  background:#f4c400;
-  padding:10px;
-  text-align:center;
   font-weight:700;
   font-size:14px;
 }
+
+/* BANNER AMARILLO */
+.banner{
+  background:#f6c700;
+  text-align:center;
+  padding:10px;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* SECCIÓN GENERAL */
 .section{
   padding:18px;
 }
+
+/* TÍTULO */
 .title{
   text-align:center;
   font-size:26px;
   font-weight:800;
 }
+
+/* IMAGEN PRINCIPAL */
 .main-img{
   width:100%;
+  margin-top:14px;
   border-radius:14px;
-  margin-top:12px;
 }
+
+/* PROGRESO */
 .progress{
   margin-top:16px;
-  background:#d9d9d9;
+  background:#d8d8d8;
   border-radius:20px;
   overflow:hidden;
 }
 .progress span{
   display:block;
   width:96.67%;
-  background:#2ca8a8;
+  background:#29a6a6;
   color:#fff;
-  font-size:13px;
   padding:6px 10px;
+  font-size:13px;
   text-align:right;
 }
+
+/* PRECIO */
 .price{
   text-align:center;
   margin-top:18px;
+}
+.price p{
+  margin:4px 0;
 }
 .price h2{
   margin:0;
   font-size:34px;
 }
-.sub{
-  color:#2ca8a8;
+.price .note{
+  color:#29a6a6;
   font-weight:600;
 }
-.block{
-  background:linear-gradient(135deg,#2ca8a8,#47c6c1);
+
+/* BLOQUE TURQUESA */
+.buy-block{
+  background:linear-gradient(135deg,#29a6a6,#49c9c4);
   padding:18px;
   color:#fff;
 }
-.block h3{
+.buy-block h3{
   text-align:center;
   margin-bottom:14px;
 }
+
+/* OPCIONES */
 .option{
   background:#1f2b3a;
   border-radius:12px;
@@ -90,29 +115,32 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  font-weight:600;
 }
-.option strong{
-  font-size:15px;
+.option small{
+  font-size:13px;
 }
 .popular{
   background:#ffc107;
   color:#000;
-  font-size:11px;
   padding:4px 8px;
+  font-size:11px;
   border-radius:8px;
 }
-.buy-more{
+
+/* COMPRAR MÁS */
+.more{
   display:flex;
   gap:10px;
   margin-top:12px;
 }
-.buy-more input{
+.more input{
   width:70px;
-  border-radius:10px;
-  border:none;
   padding:12px;
+  border:none;
+  border-radius:10px;
 }
-.buy-more button{
+.more button{
   flex:1;
   border:none;
   border-radius:10px;
@@ -120,14 +148,17 @@ body{
   color:#fff;
   font-weight:700;
 }
+
+/* CONSULTA */
 .card{
-  background:#e7f4f3;
+  background:#e6f3f2;
+  margin:18px;
   border-radius:14px;
   padding:18px;
-  margin:18px;
 }
 .card h3{
   text-align:center;
+  margin-bottom:6px;
 }
 .card input{
   width:100%;
@@ -138,12 +169,18 @@ body{
 }
 .card button{
   width:100%;
-  padding:12px;
   margin-top:10px;
+  padding:12px;
   border:none;
   border-radius:10px;
   background:#1f2b3a;
   color:#fff;
+}
+
+/* PREMIOS */
+.subtitle{
+  text-align:center;
+  font-weight:700;
 }
 .grid{
   display:grid;
@@ -159,7 +196,10 @@ body{
 }
 .win img{
   width:100%;
+  border-radius:10px;
 }
+
+/* FOOTER */
 .footer{
   background:#000;
   color:#fff;
@@ -167,7 +207,9 @@ body{
   padding:20px;
   font-size:14px;
 }
-.fab{
+
+/* BOTONES FLOTANTES */
+.floating{
   position:fixed;
   right:14px;
   bottom:20px;
@@ -175,15 +217,15 @@ body{
   flex-direction:column;
   gap:10px;
 }
-.fab div{
+.floating div{
   width:52px;
   height:52px;
   border-radius:50%;
   display:flex;
   justify-content:center;
   align-items:center;
-  color:#fff;
   font-size:22px;
+  color:#fff;
 }
 .ig{background:#e1306c;}
 .ws{background:#25d366;}
@@ -194,75 +236,75 @@ body{
 
 <div class="app">
 
-<div class="top-black">DANIEL BET · LOS MONTAÑEROS</div>
-<div class="banner">🔥 Por solo $1000 te llevas 30M o 10M al invertido 🔥</div>
+  <div class="top-bar">DANIEL BET · LOS MONTAÑEROS</div>
+  <div class="banner">🔥 Por solo $1000 te llevas 30M o 10M al invertido 🔥</div>
 
-<div class="section">
-<div class="title">🔥 ¡Gana $30.000.000! 🍀</div>
+  <div class="section">
+    <div class="title">🔥 ¡Gana $30.000.000! 🍀</div>
 
-<img src="https://via.placeholder.com/600x400" class="main-img">
+    <img src="https://via.placeholder.com/600x400" class="main-img">
 
-<div class="progress"><span>96.67%</span></div>
+    <div class="progress"><span>96.67%</span></div>
 
-<div class="price">
-<p>VALOR</p>
-<h2>$1.000 COP</h2>
-<p class="sub">🍀 Tu número puede cambiarlo todo</p>
+    <div class="price">
+      <p>VALOR</p>
+      <h2>$1.000 COP</h2>
+      <p class="note">🍀 Tu número puede cambiarlo todo</p>
+    </div>
+  </div>
+
+  <div class="buy-block">
+    <h3>SELECCIONA TU CANTIDAD</h3>
+
+    <div class="option"><span>🛒 20 ENTRADAS</span><small>$20.000</small></div>
+    <div class="option"><span>🛒 40 ENTRADAS</span><small>$40.000</small></div>
+    <div class="option">
+      <span>🛒 50 ENTRADAS</span>
+      <span class="popular">MÁS POPULAR</span>
+    </div>
+    <div class="option"><span>🛒 100 ENTRADAS</span><small>$100.000</small></div>
+    <div class="option"><span>🛒 200 ENTRADAS</span><small>$200.000</small></div>
+    <div class="option"><span>🛒 300 ENTRADAS</span><small>$300.000</small></div>
+
+    <div class="more">
+      <input type="number" value="20">
+      <button>🛒 COMPRAR MÁS</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>CONSULTA TUS ENTRADAS</h3>
+    <p>Ingresa el correo con el que realizaste tu compra</p>
+    <input type="email" placeholder="ejemplo@correo.com">
+    <button>Consultar</button>
+  </div>
+
+  <div class="subtitle">🏆 Entradas Premiadas</div>
+
+  <div class="grid">
+    <div class="win">
+      <img src="https://via.placeholder.com/300">
+      <p>500.000</p>
+      <strong>Efrén Neira</strong>
+    </div>
+    <div class="win">
+      <img src="https://via.placeholder.com/300">
+      <p>500.000</p>
+      <strong>Génesis Muñoz</strong>
+    </div>
+  </div>
+
+  <div class="footer">
+    Número de contacto<br>
+    +57 324 662 6399<br><br>
+    Creado por Frees Gou
+  </div>
+
 </div>
-</div>
 
-<div class="block">
-<h3>SELECCIONA TU CANTIDAD</h3>
-
-<div class="option"><strong>🛒 20 ENTRADAS</strong><span>$20.000</span></div>
-<div class="option"><strong>🛒 40 ENTRADAS</strong><span>$40.000</span></div>
-<div class="option">
-<strong>🛒 50 ENTRADAS</strong>
-<span class="popular">MÁS POPULAR</span>
-</div>
-<div class="option"><strong>🛒 100 ENTRADAS</strong><span>$100.000</span></div>
-<div class="option"><strong>🛒 200 ENTRADAS</strong><span>$200.000</span></div>
-<div class="option"><strong>🛒 300 ENTRADAS</strong><span>$300.000</span></div>
-
-<div class="buy-more">
-<input type="number" value="20">
-<button>🛒 COMPRAR MÁS</button>
-</div>
-</div>
-
-<div class="card">
-<h3>CONSULTA TUS ENTRADAS</h3>
-<p>Ingresa el correo con el que realizaste la compra</p>
-<input type="email" placeholder="ejemplo@correo.com">
-<button>Consultar</button>
-</div>
-
-<h3 style="text-align:center">🏆 Entradas Premiadas</h3>
-
-<div class="grid">
-<div class="win">
-<img src="https://via.placeholder.com/300">
-<p>500.000</p>
-<strong>Efrén Neira</strong>
-</div>
-<div class="win">
-<img src="https://via.placeholder.com/300">
-<p>500.000</p>
-<strong>Génesis Muñoz</strong>
-</div>
-</div>
-
-<div class="footer">
-Número de contacto<br>
-+57 324 662 6399<br><br>
-Creado por Frees Gou
-</div>
-
-</div>
-
-<div class="fab">
-<div class="ig">📷</div>
-<div class="ws">💬</div>
+<div class="floating">
+  <div class="ig">📷</div>
+  <div class="ws">💬</div>
 </div>
 
 </body>
